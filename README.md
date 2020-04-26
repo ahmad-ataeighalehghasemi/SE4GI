@@ -1,7 +1,7 @@
 # SE4GI
 Name of the group members:
 
-Firmino M. Mucucete\n
+Firmino M. Mucucete
 firminomanuel.mucucete@mail.polimi.it 
 Ahmad Ataeighalehghasemi
 ahmad.ataeighalehghasemi@mail.polimi.it 
