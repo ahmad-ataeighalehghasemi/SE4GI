@@ -232,6 +232,17 @@ def delete(id):
     conn.commit()
     return redirect(url_for('index'))
 
+
+
+
+@app.route('/barplot', methods=('GET', 'POST'))
+def barplot():
+    
+    return render_template('auth/circonf_barplot.html')
+
+
+
+
 # If we're running in stand alone mode, run the application
 if __name__ == '__main__':
     app.run()

@@ -47,6 +47,8 @@ position.plot(ax=ax, color='red')
 
 
 
+#creat a function for each graph
+
 
 #Map_vue
 ##ax = world[world.continent == 'North America'].plot(color='white', edgecolor='black')
@@ -66,10 +68,9 @@ cir=list(df['4_Circumference_of_t'])
 data = ColumnDataSource({'x' : nb_tree, 'y': cir})
 p2 = figure()
 p2.vbar(x='x', top='y', source = data, width=0.9) 
+output_file('circonf_barplot.html')
 show(p2)
-output_file('barplot.html')
-
-#Barplot of the type of tree
+#Barplot of the type of trees
 
 
 
@@ -83,7 +84,7 @@ output_file('barplot.html')
 
 
 
-#histogramme 
+#histogram 
 
 
 
@@ -97,7 +98,7 @@ output_file('barplot.html')
 
 
 
-#cartogramme
+#cartogram
 
 
 
