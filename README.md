@@ -14,6 +14,9 @@ abdoulkassim.sogore@mail.polimi.it
 Indusekhar Ravilla
 indusekhar.ravilla@mail.polimi.it 
 
+Gao Jiawei
+jiawei.gao@mail.polimi.it
+
 
 *Link to documents:
 https://github.com/ahmad-ataeighalehghasemi/SE4GI.git*
