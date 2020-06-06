@@ -234,11 +234,28 @@ def delete(id):
 
 
 
-
 @app.route('/barplot', methods=('GET', 'POST'))
 def barplot():
-    
-    return render_template('auth/circonf_barplot.html')
+    return render_template('graphs/circonf_barplot.html')
+
+@app.route('/cond', methods=('GET', 'POST'))
+def cond():
+    return render_template('graphs/Condition_tree.html')
+
+@app.route('/number', methods=('GET', 'POST'))
+def number():
+    return render_template('graphs/Number_tree.html')
+
+@app.route('/carto', methods=('GET', 'POST'))
+def carto():
+    return render_template('graphs/carto.html')
+
+@app.route('/city', methods=('GET', 'POST'))
+def city():
+    return render_template('graphs/city.html')
+
+
+
 
 
 

@@ -2,7 +2,7 @@
 <title>{% block title %}{% endblock %} - Blog WebApp</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <nav>
-  <h1><a href="/index">Blog WebApp</a></h1>
+  <h1><a href="/index">Tree Inventory</a></h1>
 
     {% if g.user %}
       Welcome {{ g.user[1] }}!
@@ -16,7 +16,6 @@
     {% endif %}
   </ul>
 </nav>
-
       <hr>
 <section class = "content">
   <header>

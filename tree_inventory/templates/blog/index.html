@@ -2,13 +2,17 @@
 
 {% block header %}
   {% if g.user %}
+      <section>
+        <p>Click here to see the barplot of the circumférence <a href="/barplot"> Cir_Barplot</a> <br />
+        <p>Click here to see the number of each tree <a href="/number"> Number_tree</a> <br />
+        <p>Click here to see the Condition of each tree <a href="/cond"> Condition_tree</a> <br />
+        <p>Click here to see the City <a href="/city"> City</a> <br />
+        <p>Click here to see the Cartograpgy of the trees <a href="/carto"> Cartography</a> <br />
+      </section>
   {% endif %}
 {% endblock %}
 
 {% block content %}
-      <section>
-          <p>Click here to see the barplot<a href="/barplot">Barplot</p>
-      </section>
   <a class = "action" href="/create">Create a new post</a>
   <h1>Posts features</h1>
   {% for post in posts %}
