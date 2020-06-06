@@ -3,12 +3,19 @@
 {% block header %}
   {% if g.user %}
       <section>
+        <img src="{{ url_for('static', filename='static/position.png') }}">
+        <p>This WebApp is based on data collected on eppicollect, you can see the raw data on the website <a href="https://five.epicollect.net/project/asm-su19-trees/data" title="See the data" target="_blank">raw_data</a> <br />
+        <h1> Data Exposition</h1>
         <p>Click here to see the barplot of the circumférence <a href="/barplot"> Cir_Barplot</a> <br />
         <p>Click here to see the number of each tree <a href="/number"> Number_tree</a> <br />
         <p>Click here to see the Condition of each tree <a href="/cond"> Condition_tree</a> <br />
         <p>Click here to see the City <a href="/city"> City</a> <br />
         <p>Click here to see the Cartograpgy of the trees <a href="/carto"> Cartography</a> <br />
       </section>
+  {% else %}
+      <p>This is a private website you have to be connected! <br/>
+        The data are collected from Epicollect, they relate to a tree inventory
+      </p>
   {% endif %}
 {% endblock %}
 

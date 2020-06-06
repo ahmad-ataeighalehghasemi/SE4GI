@@ -31,21 +31,21 @@ from get_coord import *
 
 df=gpd.GeoDataFrame(df) #creat the geodatabase
 #plot of the position 
-#df['geometry']=None
-#for i in range(len(df)):
-#    latitude=df['3_GPS_location_taken'][i]['latitude']
-#    longitude=df['3_GPS_location_taken'][i]['longitude']
-#    if latitude or longitude !="":
-#        df['geometry'][i]=Point(longitude,latitude)
-#world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
-##cities = gpd.read_file(gpd.datasets.get_path('naturalearth_cities'))
-#df.crs = fiona.crs.from_epsg(3857) # Set the coordinate system to WGS84 using Fiona module
-#df.to_file(r'position.shp')
-#position = gpd.read_file(r'position.shp')
-#
-##mapview geodateframe
-#ax = world[world.continent == 'North America'].plot(color='white', edgecolor='black')
-#position.plot(ax=ax, color='red')
+df['geometry']=None
+for i in range(len(df)):
+    latitude=df['3_GPS_location_taken'][i]['latitude']
+    longitude=df['3_GPS_location_taken'][i]['longitude']
+    if latitude or longitude !="":
+        df['geometry'][i]=Point(longitude,latitude)
+world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
+#cities = gpd.read_file(gpd.datasets.get_path('naturalearth_cities'))
+df.crs = fiona.crs.from_epsg(3857) # Set the coordinate system to WGS84 using Fiona module
+df.to_file(r'position.shp')
+position = gpd.read_file(r'position.shp')
+
+#mapview geodateframe
+ax = world[world.continent == 'North America'].plot(color='white', edgecolor='black')
+position.plot(ax=ax, color='red')
 #creat a function for each graph
 #Map_vue
 #ax = world[world.continent == 'North America'].plot(color='white', edgecolor='black')
@@ -73,10 +73,10 @@ for i in range(len(df)):
         df['x_coord'][i]=coord[0]
         df['y_coord'][i]=coord[1]
 #p1 = figure(x_range=(-9780000, -9745000), y_range=(5130000, 5160000),x_axis_type="mercator", y_axis_type="mercator")
-p#1.add_tile(CARTODBPOSITRON)
+#p1.add_tile(CARTODBPOSITRON)
 #p = figure(x_axis_type="mercator", y_axis_type="mercator")
 #p.add_tile(CARTODBPOSITRON)
-#p1=figure()
+p1=figure()
 p1.circle(x = df['x_coord'],y = df['y_coord'],   #ploting of the trees
          line_color="#FF0000", 
          fill_color="#FF0000",
@@ -144,26 +144,7 @@ p4.xaxis[0].axis_label = 'Type of tree'
 p4.yaxis[0].axis_label = 'Condition 3 (excellent) 2 (good) 1 (fair)'
 output_file('Condition_tree.html')
 #show(p4)
-    
-
-
-
-
-
-
-
-
-
-
-
 #histogram 
-
-
-
-
-
-
-
 
 
 
