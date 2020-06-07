@@ -5,6 +5,7 @@ Created on Tue Jun  2 17:52:08 2020
 @author: abdou
 """
 
+#Here are the different graphs exported as html files
 from raw_data import *
 import geopandas as gpd
 from shapely.geometry import Point, LineString, Polygon

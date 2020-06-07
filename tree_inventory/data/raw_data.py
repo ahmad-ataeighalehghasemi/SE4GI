@@ -5,6 +5,7 @@ Created on Tue Jun  2 18:14:08 2020
 @author: abdou
 """
 
+#this script collect de data from epicollect and initialize the datframe
 import requests
 import json
 import pandas as pd
@@ -18,4 +19,4 @@ colum_name=[]
 for col_name in q.keys():
     colum_name.append(col_name)
 ind=list(range(len(data)))
-df=pd.DataFrame(data, index=ind, columns=colum_name)
+df=pd.DataFrame(data, index=ind, columns=colum_name) #DataFrame
