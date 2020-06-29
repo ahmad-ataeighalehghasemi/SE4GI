@@ -1,0 +1,3 @@
+how to run our web App ?
+1-Insert your data base name and password in the file data_base.py
+2-Lauch the script web.py
