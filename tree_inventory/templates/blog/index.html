@@ -3,30 +3,50 @@
 {% block header %}
   {% if g.user %}
       <section>
-        <img src="{{ url_for('static', filename='static/position.png') }}">
-        <p>This WebApp is based on data collected on eppicollect, you can see the raw data on the website <a href="https://five.epicollect.net/project/asm-su19-trees/data" title="See the data" target="_blank">raw_data</a> <br />
-        <h1> Data Exposition</h1>
-        <p>Click here to see the barplot of the circumférence <a href="/barplot"> Cir_Barplot</a> <br />
-        <p>Click here to see the number of each tree <a href="/number"> Number_tree</a> <br />
-        <p>Click here to see the Condition of each tree <a href="/cond"> Condition_tree</a> <br />
-        <p>Click here to see the City <a href="/city"> City</a> <br />
-        <p>Click here to see the Cartograpgy of the trees <a href="/carto"> Cartography</a> <br />
-      </section>
+      <image style="float:left ;margin: 10px" height="230" width="200" src="{{url_for('static', filename='image/position.png')}}" > <br>
+     <p>A tree inventory is the gathering of accurate information on the health and diversity of a community forest.Tree inventories focus on the attributes of individual trees, as compared to a Forest inventory which seek to assess timber attributes on forest stands.Information such as how many street trees there are, what their species is, and their condition is gathered. A community forest cannot be effectively managed unless its condition is known. A tree inventory may be conducted for many reasons, such as to determine if a community needs to implement an urban forestry program, in order to prioritize tree maintenance needs, to plan for the community's future, and to provide a basis for the implementation of a management plan. A tree inventory should provide tree species, preferably in binomial nomenclature (Latin names), size, such as DBH (diameter at breast height) and tree height, crown width, overall condition such as health and maintenance needs, overcrowding, possible problems, presence or absence of insects or diseases. Characteristics of the site should also be listed such as soil type and condition, root space, and safety</p>
+    
+
+    <p>This WebApp is based on data collected on eppicollect, you can see the raw data on the website <a href="https://five.epicollect.net/project/asm-su19-trees/data" title="See the data" target="_blank">epicollet</a> and the map on the left shows where the trees are located.</p>
+    <p>
+    <h3>Distribution of the trees</h3>
+    <image style="float: right" ;margin: 10px" height="250" width="250" src="{{url_for('static', filename='image/map.png')}}" > <br>
+     <p>This map is a static representation of the trees, we can see the repartion of the trees. It a zoom of the last map but still in static way.</p>
+  </p>
+  <P>
+    In order to have a an interactive plot, different useful features among many have been collected such as the circomference, the type of the trees, the field and the iniatial of the uploader. This data is used to creat an interactive map and whith interactive histograms. The librairie bokeh provided such tools, so we collected the data from the data base then use boket to process them in order to make graphs. The Epicollect5 Database contained almost 180 entries collected. In the map it is possible to see a sample of them, 
+   in order to obtain a more undertandable and usable data visualization. You can see the type, the circumference and the title of each tree by using the mouse.
+    You can see this graphs by following this link, in this web page you can interact with the graphd, see <a href="/interactive_map">dynamic plot. </a>
+  </P>
+  <p>
+    You can also see some static fig by following this links <a href="/barplot">circumference barplot,</a> or <a href="/number">circumference barplot,</a> or <a href="/cond"> Condition of the trees.</a>
+  </p>
+
   {% else %}
-      <p>This is a private website you have to be connected! <br/>
-        The data are collected from Epicollect, they relate to a tree inventory
+  <section>
+      <p>
+        This is a webApp designed by Abdoul, Ravilla and Firmino, it's a final project for the course of sofware engeneering. We use Flask a python powerfull package and some templates provided by the professor. The idea was: collect some orignal data from a web site (we chose epicollect and tree inventory data), then perform some original data representation such as map, and so in order to publish the data in an interactive way. Data have been represented by usisng bokeh an oder package. You need to be connected in order to access and you can help us by leaving some comment and add some data. Enjoy your visit.
+
+        Member of the team.
+          <image style="float:left ;margin: 10px" height="130" width="100" src="{{url_for('static', filename='firmi.jpg')}}" > <br> 
+          <image style="float:left ;margin: 10px" height="130" width="100" src="{{url_for('static', filename='ravilla.jpg')}}" > <br> 
+          <image style="float:left ;margin: 10px" height="130" width="100" src="{{url_for('static', filename='abdoul.jpg')}}" > <br> 
       </p>
+  </section>
+     
   {% endif %}
 {% endblock %}
 
 {% block content %}
+<body
+style="background-image: url('static/back1.jpg');">
   <a class = "action" href="/create">Create a new post</a>
-  <h1>Posts features</h1>
+  <h3>Posts features</h3>
   {% for post in posts %}
     <article class="post">
           <header>
               <div>
-          <h1>{{ post[3] }}</h1>
+          <h3>{{ post[3] }}</h3>
           <div class = "about">by {{ post[0] }} on {{ post[2].strftime('%Y-%m-%d') }}</div>
         </div>
         {% if g.user[1] == post[0] %}

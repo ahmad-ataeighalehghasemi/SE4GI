@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h3>{% block title %}Insert Data{% endblock %}</h3>
+{% endblock %}
+
+{% block content %}
+<body
+style="background-image: url('static/back1.jpg');">
+  <form method="post">
+   
+    <label for="title">title</label>
+    <input name="title" id="title" value="{{ request.form['title'] }}" required>
+    <label for="latitude">latitude</label>
+    <input name="latitude" id="latitude" value="{{ request.form['latitude'] }}" required>
+    <label for="longitude">longitude</label>
+    <input name="longitude" id="longitude" value="{{ request.form['longitude'] }}" required>
+
+
+   
+
+    <label for="circomference">circomference</label>
+    <input name="circomference" id="circomference" value="{{ request.form['circomference'] }}" required>
+
+    
+
+    <label for="type">type</label>
+    <input name="type" id="type" value="{{ request.form['type'] }}" required>
+
+    <label for="condition">condition</label>
+    <input name="condition" id="condition" value="{{ request.form['condition'] }}" required>
+
+    <input type="submit" value="Save">
+  </form>
+  {% endblock %}
+  
+  

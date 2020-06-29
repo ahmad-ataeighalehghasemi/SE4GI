@@ -250,13 +250,59 @@ def number():
 def carto():
     return render_template('graphs/carto.html')
 
-@app.route('/city', methods=('GET', 'POST'))
-def city():
-    return render_template('graphs/city.html')
 
+@app.route('/interactive_map')
+def interactive_map():
+    if load_logged_in_user():
+        return render_template('interactive_map.html')
+    else:
+        error = 'Only logged in users can visualize this page!'
+        flash(error)
+        return redirect(url_for('login'))
 
+@app.route('/insert_data', methods=('GET', 'POST'))
+def insert_data():
+    if load_logged_in_user():
+        if request.method == 'POST':
+            
+            title = request.form['title']
+            circumference = request.form['circumference']
+            lat = request.form['latitude']
+            lon = request.form['longitude']
+            typ = request.form['type']
+            condition = request.form['condition']
 
-
+            
+            error = None
+            
+            if not title:
+                error = 'Name of the title is required!'
+            elif (float(circumference)<0 or float(circumference) >500):
+                error = 'Please insert a valid value for circumference!'
+            elif (float(lat)<30.0080 or float(lat)>(50.0000)):
+                error = 'Sorry but the value of the latitude is not allowed!'
+            if error is not None :
+                flash(error)
+                return redirect(url_for('insert_data'))
+            if not typ:
+                error = 'Name of the type of species is required!'
+            if not condition:
+                error='Condition is required'
+            else : 
+                conn = connect("dbname=postgres user=postgres password=Kassim123*")
+                cur = conn.cursor()
+                cur.execute('INSERT INTO tress (title, circumference, latitude, longitude, type, condition ) VALUES (%s, %s, %s, %s, %s, %s)', 
+                            (title, circumference, lat, lon, typ, condition)
+                            )
+                cur.close()
+                conn.commit()
+                return redirect(url_for('blog/index.html'))
+        else :
+            return render_template('insert_data.html')
+    else :
+        error = 'Only logged in users can insert data!'
+        flash(error)
+        return redirect(url_for('auth/login.html'))
 
 
 

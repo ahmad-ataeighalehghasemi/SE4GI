@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Edit "{{ post[3] }}"{% endblock %}</h1>
+  <h3>{% block title %}Edit "{{ post[3] }}"{% endblock %}</h3>
 {% endblock %}
 
 {% block content %}
+<body
+style="background-image: url('static/back1.jpg');">
   <form method="post">
     <label for="title">Title</label>
     <input name="title" id="title" value="{{ request.form['title'] or post[3] }}" required>
