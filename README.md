@@ -11,8 +11,6 @@ ahmad.ataeighalehghasemi@mail.polimi.it
 Abdoul Kassim SOGORE
 abdoulkassim.sogore@mail.polimi.it 
 
-Indusekhar Ravilla
-indusekhar.ravilla@mail.polimi.it 
 
 Gao Jiawei
 jiawei.gao@mail.polimi.it
